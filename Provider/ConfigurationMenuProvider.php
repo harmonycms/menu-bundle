@@ -2,7 +2,7 @@
 
 namespace Harmony\Bundle\MenuBundle\Provider;
 
-use Harmony\Bundle\CoreBundle\Event\ConfigureMenuEvent;
+use Harmony\Bundle\MenuBundle\Event\ConfigureMenuEvent;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\Provider\MenuProviderInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
