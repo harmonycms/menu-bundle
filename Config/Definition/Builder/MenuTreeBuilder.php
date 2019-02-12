@@ -2,6 +2,7 @@
 
 namespace Harmony\Bundle\MenuBundle\Config\Definition\Builder;
 
+use Harmony\Bundle\CoreBundle\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 
 /**
