@@ -11,7 +11,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  *
  * @package Harmony\Bundle\CoreBundle\DependencyInjection
  */
-class MenuConfiguration implements ConfigurationInterface
+class Configuration implements ConfigurationInterface
 {
 
     /**
@@ -26,9 +26,9 @@ class MenuConfiguration implements ConfigurationInterface
      *
      * @param string $rootName the menu root name
      *
-     * @return MenuConfiguration
+     * @return Configuration
      */
-    public function setMenuRootName($rootName): MenuConfiguration
+    public function setMenuRootName($rootName): Configuration
     {
         $this->rootName = $rootName;
 

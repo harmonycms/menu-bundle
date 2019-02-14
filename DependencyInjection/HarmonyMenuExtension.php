@@ -30,7 +30,7 @@ class HarmonyMenuExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuredMenus = [];
-        if (is_file($file = $container->getParameter('kernel.root_dir') . '/config/menu.yaml')) {
+        if (is_file($file = $container->getParameter('kernel.project_dir') . '/config/menu.yaml')) {
             $configuredMenus = Yaml::parse(file_get_contents(realpath($file)));
             $container->addResource(new FileResource($file));
         }
@@ -48,7 +48,7 @@ class HarmonyMenuExtension extends Extension
 
         // validate menu configurations
         foreach ($configuredMenus as $rootName => $menuConfiguration) {
-            $configuration                = new MenuConfiguration();
+            $configuration                = new Configuration();
             $menuConfiguration[$rootName] = $this->processConfiguration($configuration->setMenuRootName($rootName),
                 [$rootName => $menuConfiguration]);
         }
