@@ -9,6 +9,6 @@ services:
       $factory: '@Harmony\Bundle\MenuBundle\Menu\MenuFactory'
     tags: ['knp_menu.provider']
 
-  knp_menu.factory.class:
+  knp_menu.factory:
     class: Harmony\Bundle\MenuBundle\Menu\MenuFactory
-  Harmony\Bundle\MenuBundle\Menu\MenuFactory: '@knp_menu.factory.class'
+  Harmony\Bundle\MenuBundle\Menu\MenuFactory: '@knp_menu.factory'
