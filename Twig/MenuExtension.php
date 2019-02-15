@@ -58,13 +58,13 @@ class MenuExtension extends AbstractExtension
             foreach ($menuInterface->getChildren() as $child) {
                 if (isset($options['attributes'])) {
                     $child->setAttributes($options['attributes']);
-                    unset($options['attributes']);
                 }
                 if (isset($options['linkAttributes'])) {
                     $child->setLinkAttributes($options['linkAttributes']);
-                    unset($options['linkAttributes']);
                 }
             }
+            unset($options['attributes']);
+            unset($options['linkAttributes']);
 
             return $this->helper->render($menuInterface, $options, $renderer);
         }
