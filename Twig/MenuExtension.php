@@ -52,15 +52,16 @@ class MenuExtension extends AbstractExtension
     {
         if (false !== $menuInterface = $this->helper->get($menu)) {
             if (isset($options['childrenAttributes'])) {
-                $menuInterface->setChildrenAttributes($options['childrenAttributes']);
+                $menuInterface->setChildrenAttributes(array_merge($menuInterface->getChildrenAttributes(),
+                    $options['childrenAttributes']));
                 unset($options['childrenAttributes']);
             }
             foreach ($menuInterface->getChildren() as $child) {
                 if (isset($options['attributes'])) {
-                    $child->setAttributes($options['attributes']);
+                    $child->setAttributes(array_merge($child->getAttributes(), $options['attributes']));
                 }
                 if (isset($options['linkAttributes'])) {
-                    $child->setLinkAttributes($options['linkAttributes']);
+                    $child->setLinkAttributes(array_merge($child->getLinkAttributes(), $options['linkAttributes']));
                 }
             }
             unset($options['attributes']);
