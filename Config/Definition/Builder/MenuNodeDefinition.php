@@ -25,7 +25,7 @@ class MenuNodeDefinition extends ArrayNodeDefinition
         }
 
         return $this
-            ->prototype('array')
+            ->arrayPrototype()
                 ->children()
                     ->scalarNode('route')->end()
                     ->arrayNode('routeParameters')
