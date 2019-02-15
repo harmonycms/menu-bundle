@@ -2,8 +2,8 @@
 
 namespace Harmony\Bundle\MenuBundle\Event;
 
+use Harmony\Bundle\MenuBundle\Menu\ItemInterface;
 use Knp\Menu\FactoryInterface;
-use Knp\Menu\ItemInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
@@ -42,7 +42,7 @@ class ConfigureMenuEvent extends Event
     /**
      * @return FactoryInterface
      */
-    public function getFactory()
+    public function getFactory(): FactoryInterface
     {
         return $this->factory;
     }
@@ -50,7 +50,7 @@ class ConfigureMenuEvent extends Event
     /**
      * @return ItemInterface
      */
-    public function getMenu()
+    public function getMenu(): ItemInterface
     {
         return $this->menu;
     }

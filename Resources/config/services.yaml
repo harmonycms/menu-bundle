@@ -5,4 +5,10 @@ services:
     autoconfigure: true
 
   Harmony\Bundle\MenuBundle\Provider\ConfigurationMenuProvider:
+    arguments:
+      $factory: '@Harmony\Bundle\MenuBundle\Menu\MenuFactory'
     tags: ['knp_menu.provider']
+
+  knp_menu.factory.class:
+    class: Harmony\Bundle\MenuBundle\Menu\MenuFactory
+  Harmony\Bundle\MenuBundle\Menu\MenuFactory: '@knp_menu.factory.class'
