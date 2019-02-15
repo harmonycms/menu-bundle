@@ -12,3 +12,13 @@ services:
   knp_menu.factory:
     class: Harmony\Bundle\MenuBundle\Menu\MenuFactory
   Harmony\Bundle\MenuBundle\Menu\MenuFactory: '@knp_menu.factory'
+
+  Harmony\Bundle\MenuBundle\Twig\MenuHelper:
+    arguments:
+      - '@knp_menu.renderer_provider'
+      - '@knp_menu.menu_provider'
+      - '@knp_menu.manipulator'
+      - '@knp_menu.matcher'
+
+  Harmony\Bundle\MenuBundle\Twig\MenuExtension:
+    tags: ['twig.extension']
