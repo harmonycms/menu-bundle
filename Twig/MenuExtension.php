@@ -35,7 +35,8 @@ class MenuExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('menu_render', [$this, 'render'], ['is_safe' => ['html']])
+            new TwigFunction('menu_render', [$this, 'render'], ['is_safe' => ['html']]),
+            new TwigFunction('menu_get', [$this, 'get'], ['is_safe' => ['html']])
         ];
     }
 
@@ -71,5 +72,19 @@ class MenuExtension extends AbstractExtension
         }
 
         return '';
+    }
+
+    /**
+     * Retrieves an item following a path in the tree.
+     *
+     * @param ItemInterface|string $menu
+     * @param array                $path
+     * @param array                $options
+     *
+     * @return ItemInterface
+     */
+    public function get($menu, array $path = [], array $options = [])
+    {
+        return $this->helper->get($menu, $path, $options);
     }
 }
