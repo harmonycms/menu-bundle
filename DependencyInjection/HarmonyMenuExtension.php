@@ -30,12 +30,23 @@ class HarmonyMenuExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuredMenus = [];
+        // Load menu from Symfony application
         if (is_file($file = $container->getParameter('kernel.project_dir') . '/config/menu.yaml')) {
             $configuredMenus = Yaml::parse(file_get_contents(realpath($file)));
             $container->addResource(new FileResource($file));
         }
+        // Load menu from all bundles
         foreach ($container->getParameter('kernel.bundles') as $bundle) {
             $reflection = new \ReflectionClass($bundle);
+            if (is_file($file = dirname($reflection->getFileName()) . '/Resources/config/menu.yaml')) {
+                $configuredMenus = array_replace_recursive($configuredMenus,
+                    Yaml::parse(file_get_contents(realpath($file))));
+                $container->addResource(new FileResource($file));
+            }
+        }
+        // Load menu from all extensions (Module or Plugin)
+        foreach ($container->getParameter('kernel.extensions') as $extension) {
+            $reflection = new \ReflectionClass($extension);
             if (is_file($file = dirname($reflection->getFileName()) . '/Resources/config/menu.yaml')) {
                 $configuredMenus = array_replace_recursive($configuredMenus,
                     Yaml::parse(file_get_contents(realpath($file))));
