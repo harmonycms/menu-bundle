@@ -3,6 +3,7 @@
 namespace Harmony\Bundle\MenuBundle\Provider;
 
 use Harmony\Bundle\MenuBundle\Event\ConfigureMenuEvent;
+use Harmony\Bundle\MenuBundle\Menu\MenuItem;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\Provider\MenuProviderInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -98,6 +99,9 @@ class ConfigurationMenuProvider implements MenuProviderInterface
     {
         // Create menu root item
         $menu = $this->factory->createItem($name);
+        if ($menu instanceof MenuItem) {
+            $menu->setProvider('config');
+        }
         if (!empty($this->configuration[$name]['childrenAttributes'])) {
             $menu->setChildrenAttributes($this->configuration[$name]['childrenAttributes']);
         }

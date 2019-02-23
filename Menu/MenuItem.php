@@ -18,6 +18,11 @@ class MenuItem extends BaseMenuItem implements ItemInterface
     protected $domain;
 
     /**
+     * @var null|string $provider
+     */
+    protected $provider;
+
+    /**
      * @return MenuDomain
      */
     public function getDomain(): MenuDomain
@@ -33,6 +38,30 @@ class MenuItem extends BaseMenuItem implements ItemInterface
     public function setDomain(MenuDomain $domain): ItemInterface
     {
         $this->domain = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Get Provider
+     *
+     * @return null|string
+     */
+    public function getProvider(): ?string
+    {
+        return $this->provider;
+    }
+
+    /**
+     * Set Provider
+     *
+     * @param string $provider
+     *
+     * @return MenuItem
+     */
+    public function setProvider(string $provider): MenuItem
+    {
+        $this->provider = $provider;
 
         return $this;
     }
