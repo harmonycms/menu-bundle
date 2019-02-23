@@ -64,8 +64,6 @@ class HarmonyMenuExtension extends Extension
                 [$rootName => $menuConfiguration]);
         }
 
-        // Set configuration to be used in a custom service
-        $container->setParameter('harmony_menu.configuration', $configuredMenus);
         // Last argument of this service is always the menu configuration
         $container->getDefinition(ConfigurationMenuProvider::class)->setArgument('$configuration', $configuredMenus);
     }
