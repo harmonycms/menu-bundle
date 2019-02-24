@@ -71,7 +71,7 @@ class MenuItem extends BaseMenuItem implements ItemInterface
      */
     public function toArray(): array
     {
-        return [
+        $array = [
             'name'               => $this->getName(),
             'uri'                => $this->getUri(),
             'label'              => $this->getLabel(),
@@ -84,7 +84,13 @@ class MenuItem extends BaseMenuItem implements ItemInterface
             'display'            => $this->isDisplayed(),
             'displayChildren'    => $this->getDisplayChildren(),
             'domain'             => $this->getDomain(),
-            'provider'           => $this->getProvider()
+            'provider'           => $this->getProvider(),
+            'children'           => [],
         ];
+        foreach ($this->getChildren() as $key => $child) {
+            $array['children'][$key] = $child->toArray();
+        }
+
+        return $array;
     }
 }
