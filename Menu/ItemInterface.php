@@ -15,9 +15,9 @@ interface ItemInterface extends BaseItemInterface
     /**
      * Get a menu domain.
      *
-     * @return MenuDomain
+     * @return null|MenuDomain
      */
-    public function getDomain(): MenuDomain;
+    public function getDomain(): ?MenuDomain;
 
     /**
      * Set a menu domain.

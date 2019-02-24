@@ -23,9 +23,9 @@ class MenuItem extends BaseMenuItem implements ItemInterface
     protected $provider;
 
     /**
-     * @return MenuDomain
+     * @return null|MenuDomain
      */
-    public function getDomain(): MenuDomain
+    public function getDomain(): ?MenuDomain
     {
         return $this->domain;
     }
