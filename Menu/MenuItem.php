@@ -65,4 +65,26 @@ class MenuItem extends BaseMenuItem implements ItemInterface
 
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'name'               => $this->getName(),
+            'uri'                => $this->getUri(),
+            'label'              => $this->getLabel(),
+            'attributes'         => $this->getAttributes(),
+            'linkAttributes'     => $this->getLinkAttributes(),
+            'childrenAttributes' => $this->getChildrenAttributes(),
+            'labelAttributes'    => $this->getLabelAttributes(),
+            'extras'             => $this->getExtras(),
+            'current'            => $this->isCurrent(),
+            'display'            => $this->isDisplayed(),
+            'displayChildren'    => $this->getDisplayChildren(),
+            'domain'             => $this->getDomain(),
+            'provider'           => $this->getProvider()
+        ];
+    }
 }
