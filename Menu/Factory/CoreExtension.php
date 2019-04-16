@@ -25,5 +25,8 @@ class CoreExtension extends BaseCoreExtension
     {
         $item->setDomain(new MenuDomain());
         parent::buildItem($item, $options);
+        if (isset($options['target'])) {
+            $item->setLinkAttribute('target', $options['target']);
+        }
     }
 }
